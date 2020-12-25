@@ -52,7 +52,7 @@ RUN echo yes | ${ANDROID_SDK_ROOT}/cmdline-tools/latest/bin/sdkmanager --license
     && echo yes | ${ANDROID_SDK_ROOT}/cmdline-tools/latest/bin/sdkmanager "build-tools;30.0.3" > /dev/null \
     && echo yes | ${ANDROID_SDK_ROOT}/cmdline-tools/latest/bin/sdkmanager ${ANDROID_SDK_PACKAGES}
 ENV PATH=${PATH}:${ANDROID_SDK_ROOT}/cmdline-tools/latest/bin:${ANDROID_SDK_ROOT}/cmdline-tools/tools/bin:${ANDROID_SDK_ROOT}/tools/bin
-ENV PATH=${PATH}:${ANDROID_SDK_ROOT}/bin:${ANDROID_SDK_ROOT}/platform-tools:${ANDROID_SDK_ROOT}/build_tools/30.0.3
+ENV PATH=${PATH}:${ANDROID_SDK_ROOT}/bin:${ANDROID_SDK_ROOT}/platform-tools:${ANDROID_SDK_ROOT}/build-tools/30.0.3
 
 ENV JAVA_OPTS="-Djava.awt.headless=true -Xms1024m -Xmx2048m" \
     GRADLE_OPTS="-Dorg.gradle.daemon=false -Dorg.gradle.workers.max=4 -Dorg.gradle.parallel=false -XX:+UseG1GC -XX:MaxGCPauseMillis=1000" \

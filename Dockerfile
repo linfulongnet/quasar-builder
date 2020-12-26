@@ -12,8 +12,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -y update && apt-get -yq --no-install
 # node env
 ARG node_version=12.20.0
 ARG nvm_version=0.37.2
-ENV NVM_DIR=$HOME/.nvm \
-    PATH=$PATH:$NVM_DIR/versions/node/v${node_version}/bin
+ENV NVM_DIR=$HOME/.nvm
 RUN mkdir -p $NVM_DIR \
     && echo "199.232.68.133 raw.githubusercontent.com" >> /etc/hosts \
     && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v${nvm_version}/install.sh | bash \
@@ -34,6 +33,7 @@ RUN mkdir -p $NVM_DIR \
     && yarn config set sass_binary_site https://npm.taobao.org/mirrors/node-sass/ \
     && yarn config set disturl https://npm.taobao.org/mirrors/node/ \
     && yarn config set sharp_dist_base_url https://npm.taobao.org/mirrors/sharp-libvips/v8.9.1/
+ENV PATH=$PATH:$NVM_DIR/versions/node/v${node_version}/bin
 
 # install android sdk and ndk
 ARG android_sdk_version=6858069
